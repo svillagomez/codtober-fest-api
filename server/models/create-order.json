@@ -22,11 +22,6 @@
       "type": [
         "string"
       ]
-    },
-    "total": {
-      "type": [
-        "integer"
-      ]
     }
   },
   "validations": [],

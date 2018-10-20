@@ -11,23 +11,36 @@ module.exports = function(Createorder) {
 
 function calculateFinalPrice(order) {
 
-  const sizes = [
-    'Small',
-    'Medium',
-    'Large',
+  console.log('la ORDER', order);
+
+  const pricesPerSize = [
+    {'name': 'Small', 'price': 5},
+    {'name': 'Medium', 'price': 8},
+    {'name': 'Large', 'price': 11},
   ];
 
-  const ingredients = [
-    'Extra cheese',
-    'Anchovies',
-    'Pineapple',
-    'Onions',
-    'Caviar',
-    'Kobe Beef'
+  const pricesPerIngredient = [
+    {'name': 'Extra cheese', 'price': 1},
+    {'name': 'Anchovies', 'price': 2},
+    {'name': 'Pineapple', 'price': 1},
+    {'name': 'Onions', 'price': 1},
+    {'name': 'Caviar', 'price': 5},
+    {'name': 'Kobe Beef', 'price': 10},
   ];
 
-  if (sizes.includes(order.size)) {
+  let calculatedTotal = 0;
 
-    console.log('aqui se calcula el precio', order);
-  }
+  pricesPerSize.forEach(pricePerSize => {
+    if (pricePerSize.name === order.size) {
+      calculatedTotal += pricePerSize.price;
+    }
+  });
+
+  pricesPerIngredient.forEach(priceIngredient => {
+    if (order.ingredients.includes(priceIngredient.name)) {
+      calculatedTotal += priceIngredient.price;
+    }
+  });
+
+  order.total = calculatedTotal;
 }
