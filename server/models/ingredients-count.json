@@ -1,0 +1,44 @@
+{
+  "name": "ingredients-count",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cheese": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "anchovies": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "pineapple": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "onions": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "caviar": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "kobe-beef": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

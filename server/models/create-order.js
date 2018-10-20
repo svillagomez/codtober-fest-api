@@ -1,10 +1,32 @@
 'use strict';
+const app = require('../../server/server');
 
 module.exports = function(Createorder) {
-  Createorder.observe('before save', function filterProperties(context, next) {
+  Createorder.observe('before save', async function filterProperties(context, next) {
     calculateFinalPrice(context.instance);
-    next();
+
+    const ingredientsCounter = await app.models.ingredientsCount.find();
+
+    if (ingredientsCounter.length === 0) {
+      console.log('add model counter');
+      const IngredientsCounter = app.models.ingredientsCount;
+
+      await IngredientsCounter.create({
+        'cheese': 0,
+        'anchovies': 0,
+        'pineapple' : 0,
+        'onions': 0,
+      })
+    }
+    return Promise.resolve(context.instance);
   });
+
+  Createorder.observe('after save', async function filterProperties(context, next) {
+    const counts = await app.models.ingredientsCount.find();
+    return Promise.resolve(context.instance);
+
+  });
+
 };
 
 

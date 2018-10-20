@@ -4,8 +4,8 @@
     "port": 27017,
     "database": "codtober-fest",
     "password": "",
-    "user": "",
     "name": "mongodb",
+    "user": "",
     "connector": "mongodb",
     "allowExtendedOperators": true
   }
