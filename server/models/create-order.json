@@ -1,0 +1,36 @@
+{
+  "name": "create-order",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "ingredients": {
+      "type": [
+        "string"
+      ]
+    },
+    "total": {
+      "type": [
+        "integer"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
